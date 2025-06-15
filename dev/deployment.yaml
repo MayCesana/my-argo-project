@@ -13,7 +13,7 @@ spec:
         app: api-app
     spec:
       containers:
-      - name: api-app
-        image: nanajanashia/argocd-app:1.2
-        ports:
-        - containerPort: 8080
+        - name: api-app
+          image: docker.io/205618929/my-app:8b031943c01a645233dfec4ded4dd5c834dd3b72
+          ports:
+            - containerPort: 8080
