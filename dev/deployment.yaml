@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: api-app
-          image: docker.io/205618929/my-app:8b031943c01a645233dfec4ded4dd5c834dd3b72
+          image: docker.io/205618929/api-app:e65f2a7327e35e80d9e4bbb0c88dea7ab6829736
           ports:
             - containerPort: 8080
