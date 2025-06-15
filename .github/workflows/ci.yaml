@@ -19,7 +19,7 @@ jobs:
 
       - name: Build and push image
         run: |
-          image="docker.io/${{ secrets.DOCKERHUB_USERNAME }}/my-app:${{ github.sha }}"
+          image="docker.io/${{ secrets.DOCKERHUB_USERNAME }}/api-app:${{ github.sha }}"
           docker build -t $image .
           docker push $image
 
@@ -28,7 +28,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd dev
-          yq e -i '.spec.template.spec.containers[0].image = "docker.io/${{ secrets.DOCKERHUB_USERNAME }}/my-app:${{ github.sha }}"' deployment.yaml
+          yq e -i '.spec.template.spec.containers[0].image = "docker.io/${{ secrets.DOCKERHUB_USERNAME }}/api-app:${{ github.sha }}"' deployment.yaml
           git config --global user.name "ci"
           git config --global user.email "ci@@users.noreply.github.com"
           git add .
