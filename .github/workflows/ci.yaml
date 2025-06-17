@@ -49,7 +49,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           cd argocd-apps-config
-          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/MayCesana/argocd-apps-config.git
+          git remote set-url origin https://${{ secrets.PAT }}@github.com/MayCesana/argocd-apps-config.git
           git add .
           git commit -m "Update image tag to ${{ github.sha }}"
-          git push -u origin main
+          git push origin main
