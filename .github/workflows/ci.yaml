@@ -27,6 +27,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: MayCesana/argocd-apps-config
+          path: argocd-apps-config
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -40,6 +41,7 @@ jobs:
         env:
           ENV: dev
         run: |
+          ls
           cd argocd-apps-config/apps/api-app/$ENV
           yq e -i '.spec.template.spec.containers[0].image = "docker.io/${{ secrets.DOCKERHUB_USERNAME }}/api-app:${{ github.sha }}"' deployment.yaml
 
