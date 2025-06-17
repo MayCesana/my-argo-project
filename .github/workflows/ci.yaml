@@ -45,11 +45,8 @@ jobs:
           yq e -i '.spec.template.spec.containers[0].image = "docker.io/${{ secrets.DOCKERHUB_USERNAME }}/api-app:${{ github.sha }}"' deployment.yaml
 
       - name: Commit and Push Changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           cd argocd-apps-config
-          git remote set-url origin https://MayCesana:$GITHUB_TOKEN@github.com/MayCesana/argocd-apps-config.git
           git add .
           git commit -m "Update image tag to ${{ github.sha }}"
           git push origin main
