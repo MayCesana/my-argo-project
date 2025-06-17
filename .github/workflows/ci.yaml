@@ -29,8 +29,7 @@ jobs:
           repository: MayCesana/argocd-apps-config
           path: argocd-apps-config
           ref: main
-          token: ${{ secrets.GITHUB_TOKEN }}
-
+          token: ${{ secrets.PAT }}
 
       - name: Set up Git Identity
         run: |
