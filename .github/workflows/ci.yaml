@@ -40,7 +40,7 @@ jobs:
         env:
           ENV: dev
         run: |
-          cd argocd-apps-config/apps/$ENV
+          cd argocd-apps-config/apps/api-app/$ENV
           yq e -i '.spec.template.spec.containers[0].image = "docker.io/${{ secrets.DOCKERHUB_USERNAME }}/api-app:${{ github.sha }}"' deployment.yaml
 
       - name: Commit and Push Changes
